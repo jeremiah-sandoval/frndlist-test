@@ -9,7 +9,7 @@ var UpdateFriend = React.createClass ({
     };
   },
   componentDidMount() {
-    fetchFriend(this.props.params.id)
+    fetchFriend(this.props.params.friendId)
       .then((data) => {
         this.setState(state => {
           state.friend = data;

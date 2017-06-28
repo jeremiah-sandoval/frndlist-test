@@ -27,14 +27,23 @@ var FriendsList = React.createClass({
 
     return(
       <div className="container">
-        <AddFriend></AddFriend>
         {friend}
       </div>
     );
   },
   onDelete: function(id){
-    //console.log(id);
-    deleteFriend(id);
+    console.log(id);
+    deleteFriend(id).then((data) => {
+      let friends = this.state.friends.filter((friend) => {
+        return id !== friend.id;
+      });
+      this.setState(state => {
+        state.friends = friends;
+        return state;
+      }).bind(this);
+    }).catch((err) => {
+      consoler.error('err',err);
+    });
   }
 });
 
