@@ -1,7 +1,8 @@
 var React = require('react');
+import { Link } from 'react-router-dom';
+
 
 var FriendItem = React.createClass({
-
   render: function(){
     return(
       <div className="col-md-3">
@@ -9,8 +10,8 @@ var FriendItem = React.createClass({
           <label>Name:</label><span className="clearfix">{this.props.item.name}</span>
           <label>Age:</label><span className="clearfix">{this.props.item.age}</span>
           <div className="btnContainer">
-            <input type="submit" className="btn btn-primary" value="Edit"/>
-            <input onClick={this.handleDelete} type="submit" className="btn btn-delete" value="Delete"/>
+            <Link to={`/update/${this.props.item.id}`}  className="btn btn-primary">Edit</Link>
+            <a onClick={this.handleDelete} className="btn btn-delete">Delete</a>
           </div>
         </form>
       </div>

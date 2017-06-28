@@ -26,12 +26,16 @@ var Form = React.createClass({
   },
   render() {
     return(
-      <form name="friend-form" onSubmit={this.handleSubmit}>
-        <label>Name:</label>
-        <input type="text" id="friend-name" value={this.state.name} onChange={this.handleNameChange}/>
-        <label>Name:</label>
-        <input type="text" id="friend-age" value={this.state.age} onChange={this.handleAgeChange}/>
-        <input type="submit" value="Add Friend"/>
+      <form id="friendForm" name="friend-form" onSubmit={this.handleSubmit}>
+        <div className="col-md-2 label-container">
+          <label className="clearfix">Name:</label>
+          <label className="clearfix">Age:</label>
+        </div>
+        <div className="col-md-3 input-container">
+          <input className="clearfix" type="text" id="friend-name" value={this.state.name} onChange={this.handleNameChange}/>
+          <input className="clearfix" type="text" id="friend-age" value={this.state.age} onChange={this.handleAgeChange}/>
+        </div>
+        <input className="btn btn-primary clearfix" type="submit" value="Submit"/>
       </form>
     );
   }
